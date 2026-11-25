@@ -23,7 +23,7 @@ The project is intended to demonstrate practical software and data engineering j
 2. Accept records from synthetic external source systems.
 3. Preserve original inputs and provenance.
 4. Validate and normalise incoming data consistently.
-5. implement safe idempotent processing and conflict detection.
+5. Implement safe idempotent processing and conflict detection.
 6. Persist accepted data reliably and retain rejection and processing history.
 7. Support reconciliation independently of ingestion and persistence.
 8. Produce accurate reports that respect currency boundaries.
