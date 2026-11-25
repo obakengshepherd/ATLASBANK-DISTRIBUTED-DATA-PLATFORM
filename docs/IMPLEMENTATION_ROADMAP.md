@@ -1,6 +1,6 @@
 # Implementation Roadmap
 
-**Status:** Planned. No application implementation has started.
+**Status:** Foundation accepted; implementation has not started.
 
 The roadmap is organised around verifiable capability increments. A phase is not complete merely because its files or code have been created; the phase must pass its verification gate and be reviewed.
 
@@ -164,8 +164,8 @@ Verification gate:
 | Milestone | Status | Evidence / exit condition |
 |---|---|---|
 | Repository inspection | Complete | Empty repository and default branch configuration confirmed before first commit |
-| Foundation documentation | In progress | Seven agreed documents committed |
-| Foundation review | Not started | Product Owner review and acceptance |
+| Foundation documentation | Accepted | Seven agreed documents committed and reviewed by the Product Owner |
+| Foundation review | Accepted | Product Owner accepted the foundation documentation as the implementation baseline |
 | Technical foundation | Not started | Approved solution, database setup, build and tests |
 | Functional phases 2–7 | Not started | Phase-specific acceptance gates |
 | Hardening and demonstration | Not started | Reproducible end-to-end evidence |
