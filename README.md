@@ -1,6 +1,6 @@
 # AtlasBank — Distributed Data Platform
 
-**Status:** Foundation documentation in progress  
+**Status:** Foundation accepted; implementation not started  
 **Project type:** Synthetic financial data engineering portfolio system  
 **Primary specialisation:** Data Engineering
 
