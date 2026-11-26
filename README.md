@@ -57,10 +57,12 @@ The initial design is a layered monolith with clear domain, application, and inf
 | [Architecture](docs/ARCHITECTURE.md) | Proposed structure, boundaries, technology, and key decisions |
 | [Implementation Roadmap](docs/IMPLEMENTATION_ROADMAP.md) | Phases, deliverables, dependencies, and verification gates |
 | [Acceptance Criteria](docs/ACCEPTANCE_CRITERIA.md) | Observable conditions for accepting project capabilities |
+| [AI Collaboration](docs/AI-COLLABORATION.md) | Permanent AI roles, ownership, branch and review rules |
+| [AI Handoff](docs/AI-HANDOFF.md) | Current coordination state, assignments and next actions |
 
 ## Project status
 
-The repository began as an empty repository. The current milestone is **Foundation Documentation**. Application implementation has not started. Requirements and architecture described as proposed remain subject to review and approval where indicated.
+The Product Owner has accepted the foundation documentation as the implementation baseline. **Phase 0 is accepted; Phase 1 — Repository and Technical Foundation — has not started.** No application code, database schema, API implementation, or infrastructure has been created. Proposed architecture and technology choices remain subject to the review and approval gates recorded in the project documentation.
 
 See [docs/IMPLEMENTATION_ROADMAP.md](docs/IMPLEMENTATION_ROADMAP.md) for milestone status and the next planned step.
 
