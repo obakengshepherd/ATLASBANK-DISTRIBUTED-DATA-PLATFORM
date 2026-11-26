@@ -22,11 +22,11 @@ This is the living project coordination record. It describes verified repository
 
 ## 2. Repository baseline
 
-- Latest inspected `main` commit before this handoff update: `753970c138f48936c3dbf1645ccded6344d292da`.
-- The latest inspected tree contained the seven accepted foundation files: `README.md` and six documents under `docs/`.
+- Latest verified `main` commit immediately before this handoff refresh: `35062ff5f707e025b42e20cf62b5f171e956269d`. The commit that updates this handoff becomes the new `main` HEAD; always fetch `main` again before issuing an assignment.
+- The verified tree now contains nine files: `README.md` and eight documents under `docs/`, including the two AI governance records.
 - There were no open pull requests at the time of inspection.
-- `docs/AI-COLLABORATION.md` and `docs/AI-HANDOFF.md` did not exist at the time of inspection; they are being added as part of this governance initialisation.
-- The README contained an outdated project-status paragraph. It has been corrected to state that Phase 0 is accepted and Phase 1 has not started.
+- `docs/AI-COLLABORATION.md` and `docs/AI-HANDOFF.md` have now been created and committed to `main`.
+- The README's stale project-status paragraph has been corrected to state that Phase 0 is accepted and Phase 1 has not started.
 - Re-fetch `main` before any subsequent work. The commit SHA in this section must be refreshed after the governance files are committed.
 
 ## 3. Accepted foundation and preserved decisions
@@ -87,9 +87,9 @@ Open technical/design questions include:
 **Task ID:** `ATLASBANK-REV-001`  
 **Assignment mode:** REVIEW ONLY  
 **Assigned specialist:** Claude  
-**Assignment status:** PREPARED — awaiting submission to Claude by the Product Owner  
+**Assignment status:** PREPARED — awaiting submission to Claude; no Claude execution or review findings have been received  
 **Branch:** Not applicable; review-only work authorises no file changes.  
-**Base commit:** `753970c138f48936c3dbf1645ccded6344d292da` (latest inspected `main` before this governance update; refresh to the post-update `main` commit when issuing the prompt).  
+**Base commit:** Must be refreshed from the current `main` HEAD immediately before the review prompt is issued. The current handoff commit is not a fixed assignment base; record the fetched SHA in the prompt.  
 **Files owned for modification:** None.  
 **Files to inspect:** `README.md`, `docs/PROJECT_CHARTER.md`, `docs/REQUIREMENTS.md`, `docs/DOMAIN_MODEL.md`, `docs/ARCHITECTURE.md`, `docs/IMPLEMENTATION_ROADMAP.md`, `docs/ACCEPTANCE_CRITERIA.md`, `docs/AI-COLLABORATION.md`, and `docs/AI-HANDOFF.md`.  
 **Files excluded from modification:** All repository files. No file changes are authorised.
@@ -147,7 +147,7 @@ A structured review report containing:
 
 | Work item | Assigned AI | Branch | File ownership | Status |
 |---|---|---|---|---|
-| Governance documentation initialisation | ChatGPT | `main` | `README.md`, `docs/AI-COLLABORATION.md`, `docs/AI-HANDOFF.md` | IN PROGRESS |
+| Governance documentation initialisation | ChatGPT | `main` | `README.md`, `docs/AI-COLLABORATION.md`, `docs/AI-HANDOFF.md` | IMPLEMENTED; remote verification complete |
 | `ATLASBANK-REV-001` architecture review | Claude | N/A — review only | None | PREPARED; not yet submitted |
 | Phase 1 technical foundation | Not assigned | Not created | None | NOT STARTED |
 
@@ -181,9 +181,8 @@ The first Claude review is advisory. ChatGPT must evaluate its evidence, separat
 
 ## 9. Next authorised action
 
-1. Complete and commit the governance documentation to `main`.
-2. Re-read the updated files and refresh the latest `main` commit SHA in this handoff.
-3. Provide the Product Owner with the exact review-only Claude assignment prompt, based on the post-commit `main` state.
+1. Governance documentation is committed. Re-fetch `main` immediately before issuing the review prompt and use that exact SHA as the review base.
+2. Provide the Product Owner with the exact review-only Claude assignment prompt, based on the fetched `main` state.
 4. Await the Claude review report.
 5. ChatGPT evaluates the report and presents material decisions for Product Owner approval.
 6. Only after the review and approval gates are satisfied, prepare the Phase 1 implementation plan and explicitly assign an engineering increment.
@@ -196,8 +195,8 @@ At this point:
 - Repository content inspection: performed.
 - GitHub branch/tree/commit inspection: performed.
 - Open pull request inspection: performed; none found.
-- README status correction: committed separately; verify against latest `main`.
-- Governance files: creation/commit pending at the time this handoff draft was prepared.
+- README status correction: committed and remotely verified.
+- Governance files: created, committed to `main`, and remotely re-fetched successfully.
 - Build/tests: not applicable; no application code exists.
 - Foundation acceptance: confirmed by Product Owner.
 - Phase 1 acceptance: not yet applicable.
