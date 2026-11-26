@@ -1,6 +1,6 @@
 # Architecture
 
-**Status:** Proposed architecture baseline — pending foundation review and approval.
+**Status:** Architecture proposal within the accepted project foundation; detailed technical decisions remain subject to review and approval where indicated.
 
 ## 1. Architectural drivers
 
@@ -158,16 +158,16 @@ The exact project and folder structure will be confirmed during the technical fo
 
 | Decision | Current position | Status |
 |---|---|---|
-| Initial topology | Layered monolith | Proposed; review pending |
-| Primary database | PostgreSQL | Proposed; review pending |
-| Runtime | .NET 10 LTS | Proposed; verify at implementation |
-| SQL access | Npgsql + Dapper | Proposed; review pending |
+| Initial topology | Layered monolith | Proposed direction; detailed boundaries to be confirmed |
+| Primary database | PostgreSQL | Proposed; subject to technical review/approval |
+| Runtime | .NET 10 LTS | Proposed; verify support and approve implementation baseline |
+| SQL access | Npgsql + Dapper | Proposed; subject to technical review/approval |
 | Automated tests | Unit and integration tests | Required; framework proposed |
 | Messaging | No broker initially | Deferred; introduce only with evidence |
 | Cloud deployment | Not in initial scope | Deferred |
-| Microservices | Not justified initially | Rejected for initial scope; may be revisited with evidence |
+| Microservices | Not justified initially | Not part of initial scope; revisit only with evidence and approval |
 
-Material changes to topology, stack, security boundaries, or data-integrity strategy require Product Owner approval.
+Material changes to topology, stack, security boundaries, or data-integrity strategy require Product Owner approval. The Product Owner's acceptance of the foundation documentation confirms this document as the design baseline for further review; it does not mean every proposal in this document has been finally approved.
 
 ## 12. Open architecture decisions
 
