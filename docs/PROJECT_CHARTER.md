@@ -3,7 +3,7 @@
 **Project:** AtlasBank — Distributed Data Platform  
 **Project classification:** Synthetic financial data engineering portfolio system  
 **Primary specialisation:** Data Engineering  
-**Status:** Foundation proposal
+**Status:** Foundation documentation accepted; implementation not started
 
 ## 1. Problem statement
 
@@ -88,11 +88,11 @@ Success also requires evidence: automated tests, documented domain and architect
 
 ## 8. Governance and decision rights
 
-The user is the Product Owner and final decision-maker for scope, priorities, and material project decisions. The AI collaborator supports discovery, architecture, implementation, testing, debugging, and documentation.
+The user is the Product Owner and final decision-maker for scope, priorities, and material project decisions. The AI collaborators support discovery, architecture, implementation, testing, debugging, and documentation under the repository's AI collaboration and change-control rules.
 
 Routine implementation choices may be made within approved requirements and architecture. Approval is required before material changes to scope, architecture, stack, security boundaries, data-integrity rules, major dependencies, or infrastructure commitments.
 
-The repository is the project source of truth. Decisions and status must be recorded there when they materially affect future work.
+The repository is the project source of truth. Decisions and status must be recorded there when they materially affect future work. The accepted foundation establishes the project baseline; it does not automatically approve every proposed technical choice or close every open design decision.
 
 ## 9. Delivery approach
 
@@ -104,12 +104,14 @@ Implementation proceeds in small, reviewable increments. A capability is not con
 
 ## 10. Current milestone
 
-**Foundation Documentation**
+**Foundation Documentation — accepted**
 
 - Repository inspection: complete.
-- Foundation documentation: being established.
+- Foundation documentation: accepted by the Product Owner as the implementation baseline.
 - Application code: not started.
 - Database schema: not started.
 - API implementation: not started.
 - Infrastructure: not started.
-- Foundation review and acceptance: pending.
+- Technical foundation (Phase 1): not started.
+
+The accepted foundation does not convert proposed architecture or technology choices into final approvals. Open technical decisions remain subject to the review and approval gates recorded in the architecture and implementation roadmap.
