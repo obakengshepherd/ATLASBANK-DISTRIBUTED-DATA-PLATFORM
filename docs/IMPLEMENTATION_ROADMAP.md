@@ -21,7 +21,7 @@ Verification gate:
 - Open decisions are visible rather than silently assumed.
 - Product Owner reviews and accepts the foundation.
 
-**Status:** Documentation created; review and acceptance pending.
+**Status:** Accepted. The Product Owner accepted the foundation documentation as the implementation baseline. This acceptance does not automatically approve every proposed technology choice or close the architecture and detailed-design decisions that remain explicitly open.
 
 ## Phase 1 — Repository and technical foundation
 
