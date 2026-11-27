@@ -15,18 +15,14 @@ This is the living coordination record. It reports verified repository state, ac
 | Phase 1 — Repository and technical foundation | APPROVED — IMPLEMENTATION NOT STARTED | Product Owner approved the technical baseline on 27 November 2026; no code or infrastructure is yet present. |
 | Initial architecture | ACCEPTED INITIAL DIRECTION | Layered monolith. |
 | Phase 1 technical selections | ACCEPTED | Recorded as AB-D-009 through AB-D-017 in docs/DECISIONS.md. |
-| Latest verified main | VERIFIED | See the current `main` HEAD; re-fetch immediately before issuing the assignment. |
-| Application code / database migrations / test projects | NOT STARTED | Repository tree still contains documentation only. |
+| Latest verified main | VERIFIED | `3cc0ed5a1b7d71a1ca8dcc343e723f7c788fc9c7` at documentation-preparation checkpoint; re-fetch before Claude starts. |
+| Application code / database migrations / test projects | NOT STARTED | The inspected repository contains planning/documentation only; no application implementation is present. |
 | Claude implementation assignment | PREPARED — NOT YET ISSUED | No Claude implementation has been received. |
 | Local assembly / execution | NOT STARTED | No local build, test, or database evidence supplied. |
 
 ## 2. Latest main and history
 
-Main SHA immediately before this handoff revision:
-
-`193e1c8e76c30c346c56208ed8f5b00f822ef996`
-
-Re-fetch `main` immediately before issuing Claude's assignment; that fetched SHA becomes the assignment base.
+Main SHA at the initial inspection was `7ef21d296f4d3432dc67c8d318607b5f48dd1351`. Documentation-preparation commits subsequently advanced `main` to `3cc0ed5a1b7d71a1ca8dcc343e723f7c788fc9c7`. Re-fetch `main` immediately before Claude starts; that fetched SHA becomes the assignment base.
 
 Recent documentation commits:
 - `09083bbf57762e732fb2c8a1efa5ea0783469e24` — `docs(atlasbank): approve Phase 1 technical foundation`.
@@ -85,11 +81,12 @@ Issues reserved for later phases include exact source identity/content equivalen
 **Phase:** 1 — Repository and Technical Foundation  
 **Increment:** 1 — Reproducible development foundation  
 **Base main SHA:** Re-fetch latest `main` immediately before issue; do not use a stale SHA.  
+**Specification:** `docs/engineering/ATB-P1-FOUNDATION-001.md`  
 **Status:** Prepared; not yet issued to Claude  
 **Claude ownership:** Only the exact code/configuration files listed in the assignment prompt.  
 **Documentation ownership:** ChatGPT retains all documentation.
 
-The assignment establishes the .NET solution/projects, package configuration, local PostgreSQL Compose service, DbUp migration execution, secret-safe configuration, health/readiness endpoints, unit/integration test baseline, and clean-checkout instructions. It must not implement business transaction features.
+The assignment establishes the .NET solution/projects, package configuration, local PostgreSQL Compose service, DbUp migration execution, secret-safe configuration, health/readiness endpoints, unit/integration test baseline, and clean-checkout instructions. It must not implement business transaction features. Claude is to perform one review and proceed with implementation if there is no blocking finding.
 
 ## 8. Verification evidence required from Product Owner
 
@@ -107,9 +104,19 @@ After Claude returns complete files, assemble them locally and run the exact com
 
 No test or runtime result is claimed before the Product Owner supplies it.
 
-## 9. Current progress
+## 9. Documentation preparation completed — 27 November 2026
+
+- `docs/roadmap/PHASE-DELIVERY-PLAN.md` — detailed Phases 0–8 delivery baseline.
+- `docs/database/DATA-MODEL-STRATEGY.md` — conceptual relational data strategy; no business schema approved.
+- `docs/engineering/ATB-P1-FOUNDATION-001.md` — detailed Phase 1 implementation specification.
+- `docs/engineering/IMPLEMENTATION-LOG.md` — evidence-based implementation log established; no implementation evidence recorded.
+- README and high-level roadmap linked to the new documents; stale repository-inspection milestone wording corrected.
+
+All changes are documentation-only. No code, schema, migrations, tests, or runtime services were implemented or executed.
+
+## 10. Current progress
 
 **Current phase:** Phase 1 — Repository and Technical Foundation  
 **Progress:** 0% — implementation has not started.  
 **Phase status:** APPROVED — READY FOR IMPLEMENTATION.  
-**Next action:** Issue ATB-P1-FOUNDATION-001 to Claude.  
+**Next action:** Re-fetch latest `main`, then issue `docs/engineering/ATB-P1-FOUNDATION-001.md` to Claude.  
