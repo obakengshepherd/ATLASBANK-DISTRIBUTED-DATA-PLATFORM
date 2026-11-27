@@ -178,7 +178,7 @@ Verification gate:
 
 ## Working rule
 
-The next phase begins only when its prerequisites and approval gates are satisfied. For Phase 1, the architecture review and Product Owner technical approvals are mandatory entry gates. Under FNEOS, ChatGPT owns architecture and documentation; Claude implements only explicitly assigned code files; the Product Owner assembles and runs the code locally and supplies actual results; ChatGPT performs the return/alignment checkpoint and integrates approved changes into main. Claude does not push, commit to main, or modify ChatGPT-owned documentation. Branches are not used unless the Product Owner explicitly authorises them. If implementation uncovers a material requirement or architecture change, record the evidence and obtain the required decision before expanding scope.
+The next phase begins only when its prerequisites and verification gate are satisfied. Phase 1 is authorised under the approved baseline. ChatGPT prepares one complete handoff; Claude performs one independent review and proceeds with implementation under the same handoff if no blocking issue exists. Non-blocking findings are documented. The Product Owner assembles and runs the code locally; ChatGPT performs one return/alignment checkpoint and integrates approved changes into main. Claude does not push, commit to main, or modify ChatGPT-owned documentation. Branches are not used unless explicitly authorised. Material changes still require Product Owner approval.
 
 
 ### Engineering activation workflow — effective 27 November 2026

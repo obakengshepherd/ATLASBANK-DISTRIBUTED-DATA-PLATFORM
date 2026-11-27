@@ -1,6 +1,6 @@
 # Architecture
 
-**Status:** The Product Owner has accepted this document as part of the Phase 0 foundation baseline. The layered-monolith direction is the accepted initial architectural direction. Detailed boundaries and technology selections remain proposals unless explicitly marked approved in docs/DECISIONS.md.
+**Status:** Phase 0 foundation accepted; Phase 1 technical foundation baseline approved by the Product Owner on 27 November 2026. Implementation remains pending.
 
 ## 1. Architectural drivers
 
@@ -64,22 +64,22 @@ Cross-cutting concerns such as structured logging, configuration, diagnostics, a
 ### Reporting
 Reporting may initially be implemented as application queries and SQL projections rather than a separate service or data warehouse. The reporting model must preserve currency and time-period semantics.
 
-## 4. Technology proposal
+## 4. Approved technology baseline
 
-| Concern | Proposed choice | Rationale / status |
+| Concern | Approved choice | Rationale / status |
 |---|---|---|
 | Language | C# | Aligns with the project's backend engineering direction. |
-| Runtime | .NET 10 LTS | Current LTS baseline proposed for a new project. |
+| Runtime | .NET 10 LTS | Approved LTS baseline; use the latest supported servicing patch. |
 | HTTP API | ASP.NET Core | Mature first-party .NET API stack. |
-| Relational database | PostgreSQL | Strong transactional and relational capabilities. |
+| Relational database | PostgreSQL 18.x | Approved supported major release; pin a current 18.x patch. |
 | Database driver | Npgsql | PostgreSQL provider for .NET. |
 | SQL access | Dapper plus explicit SQL | Keeps query behaviour visible and supports deliberate SQL practice. |
-| Testing | xUnit (proposed) | Established .NET testing framework. |
-| Local environment | Docker Compose if useful | Reproducible local database setup without requiring cloud infrastructure. |
+| Testing | xUnit | Approved unit and integration test framework. |
+| Local environment | Docker Compose | Approved reproducible local PostgreSQL service. |
 | Source control | Git and GitHub | Repository is the source of truth. |
 | API documentation | OpenAPI/Swagger tooling | Useful for inspecting and demonstrating the API when the API exists. |
 
-This is a proposal, not a record of installed dependencies or implemented configuration. Dependency versions and support status must be checked at implementation time.
+These are approved technical selections, not claims that dependencies are installed or the foundation is implemented. Pin mutually compatible package versions in the solution and record the actual versions. .NET 10 remains on its latest supported servicing patch; PostgreSQL uses a supported 18.x patch.
 
 Dapper is preferred initially to keep SQL and relational behaviour explicit. An ORM should not be added by default; reconsider only if the model and development needs justify it.
 
@@ -134,9 +134,9 @@ This project does not claim compliance with banking security or regulatory stand
 
 The system should provide structured diagnostic context for batches, records, processing attempts, and reconciliation runs. Logs should support correlation across stages without exposing secrets. Metrics and health checks should be introduced when their operational purpose is clear.
 
-## 10. Proposed repository organisation
+## 10. Approved repository organisation
 
-The repository is currently documentation-only. The following is a candidate implementation structure, not a directory tree that already exists:
+The approved Phase 1 structure is:
 
     src/
       AtlasBank.Api/
@@ -148,39 +148,36 @@ The repository is currently documentation-only. The following is a candidate imp
       AtlasBank.IntegrationTests/
     database/
       migrations/
-      seed/
-    infrastructure/
-      local/
 
-The exact project and folder structure will be confirmed during the technical foundation phase. Avoid creating empty or speculative folders.
+These are four application projects within one layered monolith. Do not add speculative empty folders or additional deployable services. Infrastructure is the composition-independent implementation layer; Api is the HTTP/composition boundary.
 
 ## 11. Architecture decisions and status
 
 | Decision | Current position | Status |
 |---|---|---|
-| Initial topology | Layered monolith | Proposed direction; detailed boundaries to be confirmed |
-| Primary database | PostgreSQL | Proposed; subject to technical review/approval |
-| Runtime | .NET 10 LTS | Proposed; verify support and approve implementation baseline |
-| SQL access | Npgsql + Dapper | Proposed; subject to technical review/approval |
-| Automated tests | Unit and integration tests | Required; framework proposed |
+| Initial topology | Layered monolith | ACCEPTED INITIAL DIRECTION; four-project boundaries approved for Phase 1 |
+| Primary database | PostgreSQL 18.x | APPROVED for local development and integration testing |
+| Runtime | .NET 10 LTS / ASP.NET Core | APPROVED; use latest supported servicing patch |
+| SQL access | Npgsql + Dapper | APPROVED; explicit parameterised SQL; no ORM in foundation |
+| Automated tests | xUnit unit and integration tests | APPROVED |
 | Messaging | No broker initially | Deferred; introduce only with evidence |
 | Cloud deployment | Not in initial scope | Deferred |
 | Microservices | Not justified initially | Not part of initial scope; revisit only with evidence and approval |
 
-Material changes to topology, stack, security boundaries, or data-integrity strategy require Product Owner approval. The Product Owner's acceptance of the foundation documentation confirms this document as the design baseline for further review; it does not mean every proposal in this document has been finally approved. In particular, acceptance of the layered-monolith direction does not approve the final solution/project boundaries, API contract, database design, processing model, or security implementation. The technology choices in Section 4 remain proposed pending specialist review and explicit Product Owner approval. The status of each material decision must be reflected in docs/DECISIONS.md.
+Material changes to topology, stack, security boundaries, or data-integrity strategy still require Product Owner approval. The technical foundation choices above are approved for Phase 1 only. This does not approve later-phase API contracts, transaction schema, processing model, identity/idempotency semantics, reconciliation policy, or production security controls. The status of each material decision is reflected in docs/DECISIONS.md.
 
-## 12. FNEOS architecture review and implementation gate
+## 12. Engineering activation and implementation gate
 
-Before Phase 1 technical implementation begins, ChatGPT will prepare a bounded architecture and technical-foundation review assignment for Claude. Claude will independently assess the accepted requirements and this architecture proposal, identify omissions and technical risks, and return findings without modifying repository files. ChatGPT will reconcile the findings and present material choices to the Product Owner. Only approved decisions will be recorded as accepted in docs/DECISIONS.md. After approval, ChatGPT will prepare the technical implementation plan and assign a specific code-only increment to Claude. No solution creation, dependency installation, database setup, or application implementation is authorised merely by the Phase 0 foundation acceptance.
+The Product Owner's 27 November 2026 directive authorises Phase 1 under the approved baseline. ChatGPT prepares one bounded implementation handoff. Claude performs one independent review of that handoff and, if no blocking issue exists, implements under the same assignment. Non-blocking issues are documented and do not create another review cycle. Claude stops only for a genuine blocker or material Product Owner decision. The Product Owner assembles and tests locally; ChatGPT performs one return/alignment checkpoint and integrates approved changes. See docs/AI-COLLABORATION.md and docs/AI-HANDOFF.md.
 
 ## 13. Open architecture decisions
 
-- Exact solution and project boundaries.
+- Source identity and idempotency storage design.
 - API contract and batch submission semantics.
 - Synchronous versus asynchronous processing boundary.
 - Source identity and idempotency storage design.
 - Concurrency and transaction strategy.
-- Migration tooling and database lifecycle.
+- API contract and batch submission semantics.
 - Authentication and authorisation for operational endpoints.
 - Logging, metrics, and health-check scope.
 - Retention and data deletion strategy.

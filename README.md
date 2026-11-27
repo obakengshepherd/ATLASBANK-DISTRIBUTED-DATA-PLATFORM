@@ -1,6 +1,6 @@
 # AtlasBank — Distributed Data Platform
 
-**Status:** Foundation accepted; implementation not started  
+**Status:** Phase 0 accepted; Phase 1 technical baseline approved; implementation not yet started  
 **Project type:** Synthetic financial data engineering portfolio system  
 **Primary specialisation:** Data Engineering
 
@@ -37,11 +37,11 @@ These are intended capabilities, not claims that the functionality has already b
 - Amounts in different currencies must not be summed as though they were one currency.
 - Original input and the reasons for processing decisions must remain traceable.
 
-## Provisional technology direction
+## Approved technical foundation
 
-The current proposal is C#, .NET 10 LTS, ASP.NET Core, PostgreSQL, SQL, Npgsql, Dapper, and automated tests. Docker Compose may be used when it materially improves local reproducibility.
+The Product Owner has approved C#/.NET 10 LTS, ASP.NET Core, PostgreSQL 18.x, Npgsql, Dapper with explicit parameterised SQL, DbUp PostgreSQL migrations, xUnit, and Docker Compose for local development. The application is a four-project layered monolith with separate unit and integration test projects. See [docs/DECISIONS.md](docs/DECISIONS.md) and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the approved baseline and boundaries.
 
-This is a proposed baseline, not an irreversible commitment. The architecture and implementation decisions are recorded in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). No broker, microservice topology, cloud platform, or orchestration layer is assumed.
+No broker, microservice topology, cloud platform, Kubernetes, Redis, EF Core, or production deployment is part of the Phase 1 foundation.
 
 ## Architecture direction
 
@@ -54,7 +54,7 @@ The initial design is a layered monolith with clear domain, application, and inf
 | [Project Charter](docs/PROJECT_CHARTER.md) | Purpose, stakeholders, scope, governance, and success |
 | [Requirements](docs/REQUIREMENTS.md) | Business, functional, non-functional, and constraint requirements |
 | [Domain Model](docs/DOMAIN_MODEL.md) | Domain language, conceptual entities, rules, and invariants |
-| [Architecture](docs/ARCHITECTURE.md) | Proposed structure, boundaries, technology, and key decisions |
+| [Architecture](docs/ARCHITECTURE.md) | Approved technical foundation, boundaries, technology, and key decisions |
 | [Implementation Roadmap](docs/IMPLEMENTATION_ROADMAP.md) | Phases, deliverables, dependencies, and verification gates |
 | [Acceptance Criteria](docs/ACCEPTANCE_CRITERIA.md) | Observable conditions for accepting project capabilities |
 | [AI Collaboration](docs/AI-COLLABORATION.md) | FNEOS roles, three-stage workflow, ownership, and review rules |
@@ -63,7 +63,7 @@ The initial design is a layered monolith with clear domain, application, and inf
 
 ## Project status
 
-The Product Owner has accepted the foundation documentation as the implementation baseline. **Phase 0 is accepted; Phase 1 — Repository and Technical Foundation — has not started.** No application code, database schema, API implementation, or infrastructure has been created. Proposed architecture and technology choices remain subject to the review and approval gates recorded in the project documentation.
+The Product Owner has accepted Phase 0 and approved the Phase 1 technical baseline. **Phase 1 — Repository and Technical Foundation — is authorised; implementation has not yet started.** The repository currently contains the project documentation only. No application code, database schema, API implementation, migrations, or local infrastructure has been implemented or verified.
 
 See [docs/IMPLEMENTATION_ROADMAP.md](docs/IMPLEMENTATION_ROADMAP.md) for milestone status and the next planned step.
 

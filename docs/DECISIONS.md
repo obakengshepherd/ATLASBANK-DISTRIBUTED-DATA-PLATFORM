@@ -21,11 +21,11 @@ This register distinguishes accepted project decisions, accepted initial directi
 | AB-D-001 | AtlasBank is a synthetic financial data engineering portfolio platform, not a real banking or payment system. | ACCEPTED | Defines the business purpose and limits all claims and integrations. |
 | AB-D-002 | Phase 0 foundation documentation is accepted as the implementation baseline. | ACCEPTED | Does not imply that every proposed technical selection is approved. |
 | AB-D-003 | Use a layered monolith as the initial application architecture direction. | ACCEPTED INITIAL DIRECTION | Detailed project boundaries, API contracts, processing boundaries, and physical data design remain open for review. |
-| AB-D-004 | PostgreSQL is the proposed relational database. | PROPOSED | Requires technical review and explicit Product Owner approval before implementation. |
-| AB-D-005 | C# and .NET 10 LTS with ASP.NET Core are the proposed application platform. | PROPOSED | Verify current support and approve the implementation baseline before creating the solution. |
-| AB-D-006 | Use Npgsql and Dapper with explicit SQL as the proposed data-access approach. | PROPOSED | Review transaction, concurrency, mapping, and migration implications before approval. |
-| AB-D-007 | Use xUnit for automated tests. | PROPOSED | Testing is required; framework selection remains subject to technical review and approval. |
-| AB-D-008 | Consider Docker Compose for reproducible local PostgreSQL development. | PROPOSED | Use only if it materially improves the local workflow; no cloud infrastructure is implied. |
+| AB-D-004 | Use PostgreSQL as the relational database. | ACCEPTED | Versioned by AB-D-010 for the Phase 1 baseline. |
+| AB-D-005 | Use C# and .NET 10 LTS with ASP.NET Core. | ACCEPTED | Use the latest supported .NET 10 servicing patch; see AB-D-009. |
+| AB-D-006 | Use Npgsql and Dapper with explicit parameterised SQL. | ACCEPTED | No ORM in the initial foundation; detailed data behaviour remains phase-scoped. |
+| AB-D-007 | Use xUnit for automated tests. | ACCEPTED | Unit and integration test projects form the Phase 1 baseline. |
+| AB-D-008 | Use Docker Compose for reproducible local PostgreSQL development. | ACCEPTED | Local-only development infrastructure; no cloud deployment implied. |
 | AB-G-001 | Adopt the FNEOS three-stage workflow: ChatGPT architecture/documentation; Claude specialist engineering/code; Product Owner local assembly with ChatGPT alignment and integration. | ACCEPTED | Product Owner-approved operating model for AtlasBank. |
 | AB-G-002 | ChatGPT owns project documentation and repository coordination. | ACCEPTED | Claude may inspect documentation but cannot modify it absent explicit Product Owner-approved ownership transfer. |
 | AB-G-003 | Claude implements only explicitly assigned code files and returns complete files in chat with exact paths and verification details. | ACCEPTED | No unassigned edits or scope expansion. |
@@ -38,20 +38,18 @@ This register distinguishes accepted project decisions, accepted initial directi
 
 ## Open technical decisions
 
-The following are not yet approved:
-- Final solution and project boundaries.
-- Final .NET SDK/runtime and dependency versions after support verification.
-- PostgreSQL implementation approval and database lifecycle.
-- Npgsql/Dapper integration and transaction strategy.
-- Migration tooling.
+The following remain open for the phases that implement them:
 - Source transaction identity and content-equivalence rules.
 - Idempotency key and uniqueness scope.
 - Concurrency and atomic persistence strategy.
+- Batch partial-acceptance policy.
+- Monetary precision/scale and rounding policy.
 - Failure classification, retry boundaries, and recovery.
 - Reconciliation matching, tolerances, and control-total policy.
-- Authentication/authorisation scope for operational endpoints.
-- Local environment and whether Docker Compose is warranted.
-- Testing framework and integration-test strategy.
+- Authentication/authorisation scope for operational endpoints beyond basic health/readiness.
+- Retention and deletion policy.
+
+Routine package patch versions must be pinned by the implementation and kept within the approved .NET 10/PostgreSQL 18 baseline; this is not a new Product Owner decision.
 
 ## Decision change procedure
 

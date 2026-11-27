@@ -173,9 +173,9 @@ AtlasBank is a synthetic financial data engineering portfolio system, not a real
 ## 10. Current project-specific workflow state
 
 - Phase 0 foundation: ACCEPTED.
-- Phase 1 technical foundation: NOT STARTED.
+- Phase 1 technical foundation: APPROVED; implementation pending.
 - Application code, database schema, API, and deployment infrastructure: NOT STARTED.
-- Claude assignment: none active until ChatGPT issues an explicit assignment following the approved review and decision gates.
+- A bounded Phase 1 implementation assignment may be issued under the 27 November Engineering Activation Directive.
 - No branch-based work is authorised by default.
 
 This agreement supersedes any conflicting earlier AI collaboration or handoff procedure while preserving valid project requirements, architecture direction, and historical repository records.
