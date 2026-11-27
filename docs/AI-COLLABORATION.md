@@ -179,3 +179,25 @@ AtlasBank is a synthetic financial data engineering portfolio system, not a real
 - No branch-based work is authorised by default.
 
 This agreement supersedes any conflicting earlier AI collaboration or handoff procedure while preserving valid project requirements, architecture direction, and historical repository records.
+
+
+## 11. Engineering activation workflow directive — effective 27 November 2026
+
+This section supersedes any conflicting earlier requirement for repeated general reviews or a separate review-only assignment before implementation.
+
+For each bounded increment:
+
+1. ChatGPT finalises the design and complete implementation handoff.
+2. Claude performs one independent review of that handoff. Findings are classified as:
+   - **NON-BLOCKING:** document and proceed within the approved design.
+   - **BLOCKING:** stop only the affected work and report the exact issue and recommended resolution.
+   - **PRODUCT OWNER DECISION:** request a decision only where material approval is genuinely required.
+3. If no blocking issue exists, Claude implements under the same assignment without waiting for another general review.
+4. Claude returns complete assigned files and implementation/assembly/testing instructions.
+5. The Product Owner assembles and executes in VS Code and supplies actual evidence.
+6. ChatGPT performs one return/alignment checkpoint, reviews the increment, and integrates approved changes into main.
+7. The next increment begins.
+
+Every handoff must state task ID, phase/increment, latest verified main SHA, approved references, objective, exact included and excluded files, dependencies, expected behaviour, acceptance criteria, commands, expected outcomes, complete-file return format, assembly steps, local verification steps, risks, and stop conditions.
+
+ChatGPT owns all documentation. Claude owns only explicitly assigned code files during the active assignment. Claude must not push, commit, merge, create branches, or alter documentation. The Product Owner owns local assembly and execution. Routine implementation choices within the approved baseline do not require repeated Product Owner approval. Material changes remain subject to Product Owner authority and docs/DECISIONS.md.

@@ -25,14 +25,13 @@ Verification gate:
 
 ## Phase 1 — Repository and technical foundation
 
-**Objective:** After architecture review and Product Owner approval of the technical baseline, establish a clean, reproducible .NET and PostgreSQL development foundation.
+**Objective:** Establish a clean, reproducible .NET 10 LTS and PostgreSQL 18 development foundation under the Product Owner-approved technical baseline.
 
 Entry conditions:
 - Phase 0 foundation remains accepted.
-- Claude has completed an independent architecture review under a review-only assignment.
-- ChatGPT has reconciled the review and presented material technical decisions to the Product Owner.
-- The Product Owner has explicitly approved the implementation stack, solution boundaries, database approach, and any material infrastructure commitments.
-- ChatGPT has recorded approved decisions and prepared a bounded implementation assignment.
+- ChatGPT has reconciled the existing architecture risk review against the actual repository documents.
+- The Product Owner has issued the Engineering Activation & Workflow Directive and approved the Phase 1 technical baseline recorded in docs/DECISIONS.md.
+- ChatGPT has prepared one bounded implementation handoff. Claude performs one independent review of that handoff and proceeds with implementation under the same assignment if no blocking issue exists. No separate general review loop is required.
 
 Expected deliverables:
 - Approved solution and project structure.
@@ -173,10 +172,15 @@ Verification gate:
 | Repository inspection | Complete | Empty repository and default branch configuration confirmed before first commit |
 | Foundation documentation | Accepted | Seven agreed documents committed and reviewed by the Product Owner |
 | Foundation review | Accepted | Product Owner accepted the foundation documentation as the implementation baseline |
-| Technical foundation | Not started | Approved solution, database setup, build and tests |
+| Technical foundation | APPROVED — IMPLEMENTATION NOT STARTED | Approved baseline; solution, database setup, build and tests still require implementation and local verification |
 | Functional phases 2–7 | Not started | Phase-specific acceptance gates |
 | Hardening and demonstration | Not started | Reproducible end-to-end evidence |
 
 ## Working rule
 
 The next phase begins only when its prerequisites and approval gates are satisfied. For Phase 1, the architecture review and Product Owner technical approvals are mandatory entry gates. Under FNEOS, ChatGPT owns architecture and documentation; Claude implements only explicitly assigned code files; the Product Owner assembles and runs the code locally and supplies actual results; ChatGPT performs the return/alignment checkpoint and integrates approved changes into main. Claude does not push, commit to main, or modify ChatGPT-owned documentation. Branches are not used unless the Product Owner explicitly authorises them. If implementation uncovers a material requirement or architecture change, record the evidence and obtain the required decision before expanding scope.
+
+
+### Engineering activation workflow — effective 27 November 2026
+
+The Product Owner has superseded the prior separate review-only gate with a single review-and-build assignment workflow. ChatGPT finalises the design and bounded handoff. Claude performs one independent review of that work; non-blocking findings are documented and implementation proceeds within scope. Claude stops only for a genuine blocker or material Product Owner decision. The Product Owner assembles and executes locally; ChatGPT performs one return/alignment checkpoint and integrates approved work. No branch is used unless explicitly authorised. See docs/AI-COLLABORATION.md and docs/AI-HANDOFF.md.

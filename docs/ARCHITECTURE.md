@@ -184,3 +184,42 @@ Before Phase 1 technical implementation begins, ChatGPT will prepare a bounded a
 - Authentication and authorisation for operational endpoints.
 - Logging, metrics, and health-check scope.
 - Retention and data deletion strategy.
+
+
+## 14. Approved technical foundation baseline — 27 November 2026
+
+The Product Owner has approved the following Phase 1 implementation baseline under the Engineering Activation & Workflow Directive:
+
+- **Application platform:** C# / .NET 10 LTS / ASP.NET Core.
+- **Database:** PostgreSQL 18.x, using a current supported patch release.
+- **Data access:** Npgsql and Dapper with explicit parameterised SQL; no ORM in the initial foundation.
+- **Migrations:** DbUp with the PostgreSQL provider and ordered SQL migration scripts.
+- **Testing:** xUnit unit and integration test projects.
+- **Local database:** Docker Compose; no cloud infrastructure.
+- **Configuration:** environment variables for container/service configuration and .NET User Secrets for local application secrets. Only safe placeholders/examples may be committed.
+- **Diagnostics:** a liveness endpoint and a database-readiness endpoint.
+
+### Approved project boundaries
+
+```
+src/
+  AtlasBank.Api/
+  AtlasBank.Application/
+  AtlasBank.Domain/
+  AtlasBank.Infrastructure/
+tests/
+  AtlasBank.UnitTests/
+  AtlasBank.IntegrationTests/
+database/
+  migrations/
+```
+
+The four application projects form one layered monolith. Domain must not depend on Application, Infrastructure, or ASP.NET Core. Application owns use-case orchestration and depends on Domain abstractions. Infrastructure implements persistence and migration concerns. Api is the composition/HTTP boundary. Unit tests exercise domain/application behaviour; integration tests verify the real PostgreSQL connection and migration path using the local Compose service.
+
+The precise project references, package versions, connection setup, migration runner, and test wiring are routine implementation details within this approved baseline.
+
+### Phase 1 exclusions
+
+The foundation must not create transaction-processing business tables or implement transaction ingestion, validation policies, idempotency, batch acceptance rules, lifecycle state transitions, retry behaviour, reconciliation, or reporting. A minimal technical schema and migration journal are permitted solely to verify migration execution. No broker, microservices, cloud, Kubernetes, Redis, EF Core, Testcontainers, or production deployment is included.
+
+The approved baseline does not close later-phase domain decisions. Those remain governed by the requirements, domain model, and decision register.

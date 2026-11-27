@@ -63,3 +63,32 @@ The following are not yet approved:
 6. Only then implement the approved change.
 
 Historical or superseded arrangements may be documented for traceability, but must not be presented as current operating rules.
+
+
+## Engineering activation approvals — 2026-11-27
+
+The Product Owner's Engineering Activation & Workflow Directive of 27 November 2026 authorises Phase 1 and approves the following bounded technical baseline. These decisions apply to the reproducible development foundation; they do not approve later-phase business behaviour or production deployment.
+
+| ID | Decision | Status | Rationale / boundary |
+|---|---|---|---|
+| AB-D-009 | Use .NET 10 LTS and ASP.NET Core for the initial application. | ACCEPTED | LTS servicing is preferred over the newly released .NET 11 STS track; keep the SDK/runtime on supported patches. |
+| AB-D-010 | Use PostgreSQL 18 for local development and integration testing. | ACCEPTED | PostgreSQL 18 is a supported, established major release; pin a current 18.x patch image and update it deliberately. |
+| AB-D-011 | Use Npgsql and Dapper with explicit, parameterised SQL. | ACCEPTED | Keeps PostgreSQL access explicit and aligned with the project's SQL/data-engineering objectives. No ORM is required for the foundation. |
+| AB-D-012 | Use xUnit for automated tests. | ACCEPTED | Establishes the unit and integration test baseline. |
+| AB-D-013 | Use Docker Compose for the local PostgreSQL service. | ACCEPTED | Provides a repeatable local database without cloud infrastructure. Docker Engine/Desktop is a developer prerequisite. |
+| AB-D-014 | Use DbUp with its PostgreSQL provider for ordered SQL migrations. | ACCEPTED | Provides a migration journal and repeatable SQL deployment while retaining SQL as the source of schema changes. |
+| AB-D-015 | Use a four-project layered monolith: Api, Application, Domain, Infrastructure, with separate UnitTests and IntegrationTests projects. | ACCEPTED | Makes the existing logical boundaries enforceable without introducing services or deployment complexity. |
+| AB-D-016 | Use environment variables and .NET User Secrets for local configuration; commit only placeholders/examples. | ACCEPTED | Keeps credentials outside source control and supports reproducible local setup. |
+| AB-D-017 | Provide liveness and database-readiness diagnostics. | ACCEPTED | Verifies process health separately from database connectivity; does not introduce business endpoints. |
+
+### Explicit implementation boundaries
+
+- No transaction-ingestion endpoint, domain entity model, business table, idempotency mechanism, reconciliation logic, retry engine, authentication product, or reporting capability is part of the Phase 1 foundation increment.
+- A minimal technical schema/migration journal is permitted only to prove migration execution; it must not pre-empt the approved business data model.
+- No EF Core, message broker, microservices, cloud resources, Kubernetes, Redis, Testcontainers, or production deployment tooling is approved for this increment.
+- Package versions must be mutually compatible with .NET 10 and the selected PostgreSQL provider. Pin versions and record the actual versions used.
+- PostgreSQL major version is 18; use a current supported 18.x patch. .NET remains on the latest supported .NET 10 servicing patch.
+
+### Decisions deliberately left for later phases
+
+Source identity details, content-equivalence/fingerprinting, batch partial-acceptance policy, monetary precision/scale policy, correction/reversal semantics, conflict resolution, retry classification, lifecycle state machine, reconciliation keys/tolerances, and operational authentication remain open. They must be resolved before the phase that implements them; they do not block the technical foundation.
