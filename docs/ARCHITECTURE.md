@@ -1,6 +1,6 @@
 # Architecture
 
-**Status:** Architecture proposal within the accepted project foundation; detailed technical decisions remain subject to review and approval where indicated.
+**Status:** The Product Owner has accepted this document as part of the Phase 0 foundation baseline. The layered-monolith direction is the accepted initial architectural direction. Detailed boundaries and technology selections remain proposals unless explicitly marked approved in docs/DECISIONS.md.
 
 ## 1. Architectural drivers
 
@@ -167,9 +167,13 @@ The exact project and folder structure will be confirmed during the technical fo
 | Cloud deployment | Not in initial scope | Deferred |
 | Microservices | Not justified initially | Not part of initial scope; revisit only with evidence and approval |
 
-Material changes to topology, stack, security boundaries, or data-integrity strategy require Product Owner approval. The Product Owner's acceptance of the foundation documentation confirms this document as the design baseline for further review; it does not mean every proposal in this document has been finally approved.
+Material changes to topology, stack, security boundaries, or data-integrity strategy require Product Owner approval. The Product Owner's acceptance of the foundation documentation confirms this document as the design baseline for further review; it does not mean every proposal in this document has been finally approved. In particular, acceptance of the layered-monolith direction does not approve the final solution/project boundaries, API contract, database design, processing model, or security implementation. The technology choices in Section 4 remain proposed pending specialist review and explicit Product Owner approval. The status of each material decision must be reflected in docs/DECISIONS.md.
 
-## 12. Open architecture decisions
+## 12. FNEOS architecture review and implementation gate
+
+Before Phase 1 technical implementation begins, ChatGPT will prepare a bounded architecture and technical-foundation review assignment for Claude. Claude will independently assess the accepted requirements and this architecture proposal, identify omissions and technical risks, and return findings without modifying repository files. ChatGPT will reconcile the findings and present material choices to the Product Owner. Only approved decisions will be recorded as accepted in docs/DECISIONS.md. After approval, ChatGPT will prepare the technical implementation plan and assign a specific code-only increment to Claude. No solution creation, dependency installation, database setup, or application implementation is authorised merely by the Phase 0 foundation acceptance.
+
+## 13. Open architecture decisions
 
 - Exact solution and project boundaries.
 - API contract and batch submission semantics.

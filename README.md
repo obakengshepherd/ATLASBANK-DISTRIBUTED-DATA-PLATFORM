@@ -57,8 +57,9 @@ The initial design is a layered monolith with clear domain, application, and inf
 | [Architecture](docs/ARCHITECTURE.md) | Proposed structure, boundaries, technology, and key decisions |
 | [Implementation Roadmap](docs/IMPLEMENTATION_ROADMAP.md) | Phases, deliverables, dependencies, and verification gates |
 | [Acceptance Criteria](docs/ACCEPTANCE_CRITERIA.md) | Observable conditions for accepting project capabilities |
-| [AI Collaboration](docs/AI-COLLABORATION.md) | Permanent AI roles, ownership, branch and review rules |
-| [AI Handoff](docs/AI-HANDOFF.md) | Current coordination state, assignments and next actions |
+| [AI Collaboration](docs/AI-COLLABORATION.md) | FNEOS roles, three-stage workflow, ownership, and review rules |
+| [Decision Register](docs/DECISIONS.md) | Accepted decisions, proposals, approvals, and superseded arrangements |
+| [AI Handoff](docs/AI-HANDOFF.md) | Current verified coordination state, assignments, and next authorised action |
 
 ## Project status
 
@@ -74,3 +75,4 @@ See [docs/IMPLEMENTATION_ROADMAP.md](docs/IMPLEMENTATION_ROADMAP.md) for milesto
 4. Make important integrity rules enforceable and testable.
 5. Keep documentation aligned with the actual repository state.
 6. Never describe planned or unverified capabilities as implemented.
+7. Follow the mandatory three-stage FNEOS workflow documented in [AI Collaboration](docs/AI-COLLABORATION.md).

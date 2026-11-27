@@ -25,7 +25,7 @@ Verification gate:
 
 ## Phase 1 — Repository and technical foundation
 
-**Objective:** Establish a clean, reproducible .NET and PostgreSQL development foundation.
+**Objective:** After architecture review and Product Owner approval of the technical baseline, establish a clean, reproducible .NET and PostgreSQL development foundation.
 
 Expected deliverables:
 - Approved solution and project structure.
@@ -172,4 +172,4 @@ Verification gate:
 
 ## Working rule
 
-The next phase begins only when its prerequisites and approval gates are satisfied. If implementation uncovers a material requirement or architecture change, record the evidence and obtain the required decision before expanding scope.
+The next phase begins only when its prerequisites and approval gates are satisfied. For Phase 1, the architecture review and Product Owner technical approvals are mandatory entry gates. Under FNEOS, ChatGPT owns architecture and documentation; Claude implements only explicitly assigned code files; the Product Owner assembles and runs the code locally and supplies actual results; ChatGPT performs the return/alignment checkpoint and integrates approved changes into main. Claude does not push, commit to main, or modify ChatGPT-owned documentation. Branches are not used unless the Product Owner explicitly authorises them. If implementation uncovers a material requirement or architecture change, record the evidence and obtain the required decision before expanding scope.

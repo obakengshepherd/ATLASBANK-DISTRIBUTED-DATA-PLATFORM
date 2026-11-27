@@ -88,11 +88,19 @@ Success also requires evidence: automated tests, documented domain and architect
 
 ## 8. Governance and decision rights
 
-The user is the Product Owner and final decision-maker for scope, priorities, and material project decisions. The AI collaborators support discovery, architecture, implementation, testing, debugging, and documentation under the repository's AI collaboration and change-control rules.
+The user is the Product Owner and final authority for scope, priorities, material project decisions, and acceptance. The GitHub repository, particularly the latest main branch, is the authoritative shared project record.
 
-Routine implementation choices may be made within approved requirements and architecture. Approval is required before material changes to scope, architecture, stack, security boundaries, data-integrity rules, major dependencies, or infrastructure commitments.
+AtlasBank follows the Four-Nexus Engineering Operating System (FNEOS):
 
-The repository is the project source of truth. Decisions and status must be recorded there when they materially affect future work. The accepted foundation establishes the project baseline; it does not automatically approve every proposed technical choice or close every open design decision.
+1. **ChatGPT — Primary AI:** owns architecture, requirements, technical specifications, project documentation, decision records, Claude assignment preparation, main-branch governance, and final review and integration.
+2. **Claude — Specialist AI:** performs independent architecture review by default and implements code only against an explicitly approved assignment. Claude returns complete code files in chat with exact repository-relative paths, implementation rationale, tests, and execution instructions.
+3. **Product Owner + VS Code + ChatGPT — Assembly and integration:** the Product Owner places assigned files in the local workspace, runs the application and tests, and supplies actual results. ChatGPT performs the return/alignment checkpoint, reviews the supplied changes, and integrates approved changes into main.
+
+ChatGPT owns project documentation. Claude may read all project documentation but must not modify it without an explicit documentation-ownership transfer approved by the Product Owner. Claude must not push directly to GitHub or commit to main. Branch-based work is prohibited unless the Product Owner explicitly authorises it. Only one AI may own and modify a file at a time.
+
+Routine implementation choices may be made within approved requirements and architecture. Product Owner approval is required before material changes to scope, architecture, stack, security boundaries, data-integrity rules, major dependencies, or infrastructure commitments. Material approved decisions must be recorded in docs/DECISIONS.md.
+
+The accepted foundation establishes the project baseline; it does not automatically approve every proposed technical choice or close every open design decision. The complete collaboration and change-control rules are maintained in docs/AI-COLLABORATION.md.
 
 ## 9. Delivery approach
 
