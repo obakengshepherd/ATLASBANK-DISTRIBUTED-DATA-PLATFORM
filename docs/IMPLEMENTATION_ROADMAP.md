@@ -27,6 +27,13 @@ Verification gate:
 
 **Objective:** After architecture review and Product Owner approval of the technical baseline, establish a clean, reproducible .NET and PostgreSQL development foundation.
 
+Entry conditions:
+- Phase 0 foundation remains accepted.
+- Claude has completed an independent architecture review under a review-only assignment.
+- ChatGPT has reconciled the review and presented material technical decisions to the Product Owner.
+- The Product Owner has explicitly approved the implementation stack, solution boundaries, database approach, and any material infrastructure commitments.
+- ChatGPT has recorded approved decisions and prepared a bounded implementation assignment.
+
 Expected deliverables:
 - Approved solution and project structure.
 - Runtime and dependency configuration.

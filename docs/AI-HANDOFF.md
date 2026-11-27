@@ -28,9 +28,10 @@ The cutoff baseline is an ancestor of the current branch. The valid 26 November 
 
 Corrective commits:
 - Project-status and architecture alignment: `454ce1c89ee614d8b42ed63648062a9e31ddab54` — `docs(atlasbank): reconcile accepted foundation and Phase 1 status`.
-- FNEOS governance alignment: to be recorded here after the governance commit is created and verified.
+- FNEOS governance alignment: `bb1781a2f079683ff0b53989d545ab95d2eb3042` — `docs(governance): align collaboration with FNEOS`.
+- Verification follow-up: this handoff and the collaboration guide received a small documentation correction after the governance commit; see the latest `main` history for the follow-up commit.
 
-The latest `main` SHA must be re-fetched before any subsequent assignment or repository operation. This handoff's own commit becomes the new HEAD after the governance update.
+The latest `main` SHA must be re-fetched before any subsequent assignment or repository operation. The governance alignment commit above is part of the verified history; the latest handoff correction is recorded in the subsequent follow-up commit.
 
 ## 3. Preserved accepted project foundation
 

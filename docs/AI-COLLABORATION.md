@@ -29,7 +29,7 @@ ChatGPT is the Primary AI and principal project coordinator. ChatGPT owns:
 - Architecture decision management and change control.
 - Decomposing work into bounded engineering assignments with exact file ownership and acceptance criteria.
 - Reviewing Claude's returned work against the approved assignment.
-- Resolving integration issues, maintaining `main), and synchronising documentation with verified repository state.
+- Resolving integration issues, maintaining `main`, and synchronising documentation with verified repository state.
 
 ChatGPT must not delegate documentation editing to Claude by default. Claude may inspect documentation but may not modify it unless the Product Owner explicitly approves a documentation ownership transfer that identifies the exact files and duration.
 
@@ -115,7 +115,7 @@ Do not issue the next implementation assignment until this checkpoint is complet
 
 ## 6. Repository and main-branch governance
 
-- GitHub `main) is the shared source of truth.
+- GitHub `main` is the shared source of truth.
 - ChatGPT coordinates approved integration and maintains project documentation on `main`.
 - Claude never pushes directly to GitHub or commits to `main`.
 - No force-push, history rewrite, or deletion of historical commits is permitted as part of routine corrective work.
