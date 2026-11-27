@@ -55,7 +55,7 @@ The initial design is a layered monolith with clear domain, application, and inf
 | [Requirements](docs/REQUIREMENTS.md) | Business, functional, non-functional, and constraint requirements |
 | [Domain Model](docs/DOMAIN_MODEL.md) | Domain language, conceptual entities, rules, and invariants |
 | [Architecture](docs/ARCHITECTURE.md) | Approved technical foundation, boundaries, technology, and key decisions |
-| [Implementation Roadmap](docs/IMPLEMENTATION_ROADMAP.md) | Phases, deliverables, dependencies, and verification gates |
+| [Implementation Roadmap](docs/IMPLEMENTATION_ROADMAP.md) | High-level phases, dependencies, and verification gates |\n| [Phase Delivery Plan](docs/roadmap/PHASE-DELIVERY-PLAN.md) | Detailed delivery objectives, design gates, outputs, and acceptance evidence for Phases 0–8 |\n| [Data Model Strategy](docs/database/DATA-MODEL-STRATEGY.md) | Conceptual relational relationships, integrity principles, and phase ownership |\n| [Phase 1 Specification](docs/engineering/ATB-P1-FOUNDATION-001.md) | Implementation-ready bounded assignment for the next authorised increment |\n| [Implementation Log](docs/engineering/IMPLEMENTATION-LOG.md) | Evidence-based record of actual engineering activity and verification |
 | [Acceptance Criteria](docs/ACCEPTANCE_CRITERIA.md) | Observable conditions for accepting project capabilities |
 | [AI Collaboration](docs/AI-COLLABORATION.md) | FNEOS roles, three-stage workflow, ownership, and review rules |
 | [Decision Register](docs/DECISIONS.md) | Accepted decisions, proposals, approvals, and superseded arrangements |
@@ -65,7 +65,7 @@ The initial design is a layered monolith with clear domain, application, and inf
 
 The Product Owner has accepted Phase 0 and approved the Phase 1 technical baseline. **Phase 1 — Repository and Technical Foundation — is authorised; implementation has not yet started.** The repository currently contains the project documentation only. No application code, database schema, API implementation, migrations, or local infrastructure has been implemented or verified.
 
-See [docs/IMPLEMENTATION_ROADMAP.md](docs/IMPLEMENTATION_ROADMAP.md) for milestone status and the next planned step.
+See [docs/IMPLEMENTATION_ROADMAP.md](docs/IMPLEMENTATION_ROADMAP.md) for milestone status and [the detailed phase delivery plan](docs/roadmap/PHASE-DELIVERY-PLAN.md) for the complete Phase 0–8 execution baseline.
 
 ## Working principles
 
