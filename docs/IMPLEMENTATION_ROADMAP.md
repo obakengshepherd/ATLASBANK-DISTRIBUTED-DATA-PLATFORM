@@ -1,5 +1,7 @@
 # Implementation Roadmap
 
+For detailed phase objectives, design decisions to close, deliverables, exclusions, verification criteria, and cross-phase traceability, see [Phase Delivery Plan](roadmap/PHASE-DELIVERY-PLAN.md). The relational design approach is documented in [Data Model Strategy](database/DATA-MODEL-STRATEGY.md).
+
 **Status:** Foundation accepted; implementation has not started.
 
 The roadmap is organised around verifiable capability increments. A phase is not complete merely because its files or code have been created; the phase must pass its verification gate and be reviewed.
@@ -169,10 +171,10 @@ Verification gate:
 
 | Milestone | Status | Evidence / exit condition |
 |---|---|---|
-| Repository inspection | Complete | Empty repository and default branch configuration confirmed before first commit |
+| Repository inspection | Complete | Existing public repository, main branch, README, and accepted docs inspected; repository was not empty |
 | Foundation documentation | Accepted | Seven agreed documents committed and reviewed by the Product Owner |
 | Foundation review | Accepted | Product Owner accepted the foundation documentation as the implementation baseline |
-| Technical foundation | APPROVED — IMPLEMENTATION NOT STARTED | Approved baseline; solution, database setup, build and tests still require implementation and local verification |
+| Technical foundation | APPROVED — IMPLEMENTATION NOT STARTED | ATB-P1-FOUNDATION-001 prepared; solution, database setup, build and tests still require implementation and local verification |
 | Functional phases 2–7 | Not started | Phase-specific acceptance gates |
 | Hardening and demonstration | Not started | Reproducible end-to-end evidence |
 
