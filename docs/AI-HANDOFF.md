@@ -24,14 +24,15 @@ This is the living coordination record. It reports verified repository state, ac
 
 Latest verified main SHA:
 
-`09083bbf57762e732fb2c8a1efa5ea0783469e24`
+`193e1c8e76c30c346c56208ed8f5b00f822ef996`
 
-Previous baseline: `bbbce0c3e7fc5f688f8d4b24a960c9e5f05c4eb4`.
-
-Documentation alignment commit:
+Recent documentation commits:
 - `09083bbf57762e732fb2c8a1efa5ea0783469e24` — `docs(atlasbank): approve Phase 1 technical foundation`.
+- `945687fbb7f67ed55062128b806690531a03a691` — `docs(atlasbank): synchronize engineering activation baseline`.
+- `c289327d011634753fcfdca4120d93d4b15ae6cf` — `fix(repo): preserve docs directory during activation sync`.
+- `193e1c8e76c30c346c56208ed8f5b00f822ef996` — `docs(atlasbank): finalize technical activation handoff`.
 
-This commit records Product Owner approvals and aligns architecture, decisions, roadmap, and FNEOS collaboration instructions. It creates no application implementation. No branch was created and no history was rewritten.
+The intermediate tree-construction issue was corrected by restoring the proper root tree in the follow-up commit. The current verified tree contains README.md and docs/ with the original documentation layout; no duplicate root-level documentation copies remain. The preceding commit remains in history and was not rewritten. No application implementation has been created.
 
 ## 3. Preserved project foundation
 
