@@ -1,51 +1,48 @@
 # AI Handoff — AtlasBank
 
-**Last updated:** 2026-11-26  
+**Last updated:** 2026-11-27  
 **Maintainer:** ChatGPT — Primary AI  
 **Repository:** https://github.com/obakengshepherd/ATLASBANK-DISTRIBUTED-DATA-PLATFORM  
-**Branch:** `main)
+**Branch:** `main`
 
-This is the living project coordination record. It describes verified repository state and authorised next actions; it is not a substitute for the requirements, architecture, or decision records.
+This is the living coordination record. It reports verified repository state and the next authorised action. It does not substitute for the project requirements, architecture, roadmap, or decision register.
 
-## 1. Current project status
+## 1. Current verified status
 
-| Item | Actual status | Evidence / notes |
+| Item | Status | Evidence / notes |
 |---|---|---|
-| Project | Active | AtlasBank — Distributed Data Platform |
-| Phase 0 — Foundation | ACCEPTED | Product Owner explicitly accepted the foundation documentation as the implementation baseline. |
-| Phase 1 — Repository & Technical Foundation | NOT STARTED | No solution, application code, database schema, API, or infrastructure has been created. |
-| Current activity | IN PROGRESS | Establishing AI collaboration governance and preparing the first specialist architecture review. |
-| Application implementation | NOT STARTED | No implementation work is authorised by the current review assignment. |
-| Database schema / migrations | NOT STARTED | No physical schema or migration scripts exist. |
-| Automated tests | NOT STARTED | No test projects or test execution evidence exist. |
-| Deployment | NOT STARTED | No deployment infrastructure is in scope at this point. |
+| Phase 0 — Foundation and domain design | ACCEPTED | Product Owner accepted the foundation documentation as the implementation baseline. |
+| Phase 1 — Repository and technical foundation | NOT STARTED | No application code, database schema, API implementation, migrations, or deployment infrastructure. |
+| Architecture direction | ACCEPTED INITIAL DIRECTION | Layered monolith is the accepted initial direction; detailed boundaries remain subject to review. |
+| Technology stack | PROPOSED | C#/.NET 10 LTS, ASP.NET Core, PostgreSQL, Npgsql, Dapper, xUnit, and optional Docker Compose remain proposals pending review and Product Owner approval. |
+| Claude engineering assignment | NONE ACTIVE | No implementation assignment is active. |
+| Local assembly and test execution | NOT STARTED | No Claude implementation has been assembled or tested locally. |
 
-## 2. Repository baseline
+## 2. Repository baseline and corrective commits
 
-- Latest verified `main` commit immediately before this handoff refresh: `35062ff5f707e025b42e20cf62b5f171e956269d`. The commit that updates this handoff becomes the new `main` HEAD; always fetch `main` again before issuing an assignment.
-- The verified tree now contains nine files: `README.md` and eight documents under `docs/`, including the two AI governance records.
-- There were no open pull requests at the time of inspection.
-- `docs/AI-COLLABORATION.md` and `docs/AI-HANDOFF.md` have now been created and committed to `main`.
-- The README's stale project-status paragraph has been corrected to state that Phase 0 is accepted and Phase 1 has not started.
-- Re-fetch `main` before any subsequent work. The commit SHA in this section must be refreshed after the governance files are committed.
+Historical cutoff: **25 November 2026**. The accepted historical baseline is:
 
-## 3. Accepted foundation and preserved decisions
+`7bce0a7781d2ae31bd31cbca4a51e999de1985b3`
 
-The Product Owner accepted the Phase 0 foundation as the implementation baseline.
+The cutoff baseline is an ancestor of the current branch. The valid 26 November project-status clarifications were retained; superseded collaboration arrangements were replaced through normal corrective commits. No history was rewritten or deleted.
 
-Preserve these project boundaries and domain principles:
-- Synthetic financial data only; no real banking or payment integrations.
-- Ingestion is not settlement.
-- Validation is not authorisation.
-- Persistence is not reconciliation.
-- Duplicate detection is not idempotency.
-- Technical processing success is not necessarily business success.
-- Monetary values require exact decimal representation and explicit currency.
-- Do not combine currencies without an explicit, traceable conversion basis.
-- Preserve provenance, original input, rejection reasons, and material processing history.
-- Avoid premature microservices, brokers, cloud infrastructure, and unnecessary complexity.
+Corrective commits:
+- Project-status and architecture alignment: `454ce1c89ee614d8b42ed63648062a9e31ddab54` — `docs(atlasbank): reconcile accepted foundation and Phase 1 status`.
+- FNEOS governance alignment: to be recorded here after the governance commit is created and verified.
 
-The accepted documents remain:
+The latest `main` SHA must be re-fetched before any subsequent assignment or repository operation. This handoff's own commit becomes the new HEAD after the governance update.
+
+## 3. Preserved accepted project foundation
+
+Preserve the following:
+- Synthetic financial transaction data platform; not a real banking or payment platform.
+- Synthetic source ingestion, validation, normalisation, idempotency, conflict detection, persistence, processing history, reconciliation, currency-aware reporting, and observability.
+- Layered monolith as the accepted initial architecture direction.
+- PostgreSQL and C#/.NET 10 LTS, ASP.NET Core, Npgsql, Dapper, xUnit, and Docker Compose where useful as proposed technologies, not final approved implementation selections.
+- Domain guardrails: ingestion is not settlement; validation is not authorisation; persistence is not reconciliation; duplicate detection is not idempotency; technical success is not necessarily business success; no implicit cross-currency aggregation.
+- Original input, provenance, rejection reasons, and material processing history must remain traceable.
+
+The foundation documents remain:
 - `README.md`
 - `docs/PROJECT_CHARTER.md`
 - `docs/REQUIREMENTS.md`
@@ -54,149 +51,68 @@ The accepted documents remain:
 - `docs/IMPLEMENTATION_ROADMAP.md`
 - `docs/ACCEPTANCE_CRITERIA.md`
 
-## 4. Proposed architecture and technology — not final approval
+## 4. FNEOS operating model
 
-The current proposal in `docs/ARCHITECTURE.md` is:
-- Layered monolith.
-- C# and .NET 10 LTS.
-- ASP.NET Core.
-- PostgreSQL.
-- Npgsql.
-- Dapper with explicit SQL.
-- Unit and integration testing; xUnit is proposed.
-- Docker Compose if it materially improves local reproducibility.
+The Product Owner approved the mandatory three-stage workflow:
 
-These are proposals within the accepted foundation, not all final Product Owner approvals. They require a technical review against requirements and current supported tooling. Do not install dependencies, create a solution, create database objects, or replace the proposal before the appropriate review and Product Owner decisions.
+1. **ChatGPT — Architecture & Documentation:** owns architecture, requirements, specifications, project documentation, decision control, assignments, main-branch governance, review, and integration.
+2. **Claude — Specialist Engineering & Code:** independent review by default; code implementation only under an explicit approved assignment, returning complete files in chat with exact paths, decisions, tests, and execution instructions.
+3. **Product Owner + VS Code + ChatGPT — Assembly & Integration:** Product Owner places files locally, runs the application/tests, and supplies actual results; ChatGPT performs the return/alignment checkpoint and integrates approved changes.
 
-Open technical/design questions include:
-- Layered-monolith boundaries and whether the proposed project split is proportionate.
-- Exact .NET solution and project structure.
-- PostgreSQL fit and data type / constraint considerations.
-- Npgsql and Dapper integration and transaction handling.
-- Source transaction identity and content-equivalence semantics.
-- Idempotency, duplicate repeat, and conflicting identity handling.
-- Concurrency safety and atomic persistence.
-- Failure classification, retry boundaries, and recovery.
-- Reconciliation inputs, matching, and independent result boundaries.
-- Unit, integration, and concurrency test strategy.
-- Local environment, migrations, configuration, and reproducibility.
-- Authentication/authorisation scope for any operational endpoints.
+Zero-overlap applies: ChatGPT owns documentation; Claude owns only explicitly assigned code files during an active engineering assignment. Claude must not push or commit to main. Branch-based work is prohibited unless the Product Owner explicitly authorises it. See `docs/AI-COLLABORATION.md` for the complete rules.
 
-## 5. First specialist assignment — prepared, not yet executed
+## 5. Mandatory return/alignment checkpoint
 
-**Task ID:** `ATLASBANK-REV-001`  
-**Assignment mode:** REVIEW ONLY  
-**Assigned specialist:** Claude  
-**Assignment status:** PREPARED — awaiting submission to Claude; no Claude execution or review findings have been received  
-**Branch:** Not applicable; review-only work authorises no file changes.  
-**Base commit:** Must be refreshed from the current `main` HEAD immediately before the review prompt is issued. The current handoff commit is not a fixed assignment base; record the fetched SHA in the prompt.  
-**Files owned for modification:** None.  
-**Files to inspect:** `README.md`, `docs/PROJECT_CHARTER.md`, `docs/REQUIREMENTS.md`, `docs/DOMAIN_MODEL.md`, `docs/ARCHITECTURE.md`, `docs/IMPLEMENTATION_ROADMAP.md`, `docs/ACCEPTANCE_CRITERIA.md`, `docs/AI-COLLABORATION.md`, and `docs/AI-HANDOFF.md`.  
-**Files excluded from modification:** All repository files. No file changes are authorised.
+Whenever the Product Owner returns after Claude work or local assembly, ChatGPT must first:
+1. Establish latest main commit.
+2. Inspect repository and relevant changes.
+3. Compare the implementation against the approved assignment.
+4. Review actual test results supplied by the Product Owner.
+5. Identify omissions, inconsistencies, blockers, and scope deviations.
+6. Confirm alignment or state what remains unresolved.
 
-### Review scope
+No next implementation assignment is issued before this checkpoint. ChatGPT must not claim access to local uncommitted files or test outputs that have not been supplied.
 
-Claude is asked to assess:
-1. Layered-monolith boundaries and responsibilities.
-2. Proposed .NET solution structure.
-3. PostgreSQL suitability.
-4. Npgsql and Dapper usage.
-5. Financial data integrity.
-6. Transaction identity and idempotency semantics.
-7. Duplicate submission versus conflicting identity.
-8. Concurrency and transaction safety.
-9. Failure and retry handling.
-10. Reconciliation boundaries.
-11. Testing strategy.
-12. Local development and reproducibility.
+## 6. Current assignments and ownership
 
-### Required finding classifications
+| Work item | Owner | Files owned | Status |
+|---|---|---|---|
+| FNEOS documentation correction | ChatGPT | README and project/governance documentation | In progress until remote verification is complete |
+| Claude architecture review | Not active | None | Not yet assigned under the reset workflow |
+| Phase 1 technical implementation | Not assigned | None | NOT STARTED |
 
-Each finding must be classified as one of:
-- **ACCEPTABLE**
-- **ACCEPTABLE WITH CONDITIONS**
-- **CHANGE RECOMMENDED**
-- **PRODUCT OWNER DECISION REQUIRED**
+There is no active Claude assignment and no branch-based task authorised. The earlier `ATLASBANK-REV-001` prepared review prompt and prior branch/PR collaboration procedure are superseded by the Product Owner's 25 November historical cutoff and subsequent FNEOS governance approval. A new review assignment must be prepared under FNEOS and explicitly issued; do not imply Claude has already been contacted.
 
-Claude must cite the relevant repository document/requirement, explain the reasoning and impact, distinguish evidence from assumptions, and propose the smallest practical correction where applicable. Material decisions must be presented as options with trade-offs, not treated as approved.
+## 7. Technical review gates before Phase 1
 
-### Explicit restrictions
+Before implementation:
+- ChatGPT prepares a bounded review-only architecture assignment.
+- Claude independently reviews the architecture and technical proposal without modifying repository files.
+- ChatGPT evaluates the findings and identifies material decisions.
+- Product Owner explicitly approves or rejects material technical choices.
+- ChatGPT records approved decisions in `docs/DECISIONS.md` and prepares a bounded code-only implementation assignment.
 
-- No application implementation.
-- No database schema, table, index, or migration creation.
-- No solution or project creation.
-- No dependency installation or stack changes.
-- No repository file modifications or commits.
-- No direct changes to `main`.
-- Do not turn recommendations into approved decisions.
+No solution creation, dependency installation, database setup, schema creation, API implementation, or deployment work is authorised before these gates are satisfied.
 
-### Expected deliverable
+## 8. Documentation and repository status
 
-A structured review report containing:
-- Executive summary.
-- Findings grouped by topic and severity/priority.
-- Required classification for every finding.
-- Requirement/document references.
-- Technical rationale, risks, and trade-offs.
-- Proposed corrections, if any.
-- Product Owner decisions required.
-- A recommended Phase 1 design sequence.
-- Explicit statement confirming no files were modified.
+The corrective documentation plan is limited to:
+- Align README, charter, architecture, and roadmap with accepted project state and FNEOS gates.
+- Replace superseded AI collaboration and handoff instructions.
+- Establish the decision register.
+- Preserve requirements, domain model, and acceptance criteria unchanged.
 
-## 6. Assignment ownership and activity
-
-| Work item | Assigned AI | Branch | File ownership | Status |
-|---|---|---|---|---|
-| Governance documentation initialisation | ChatGPT | `main` | `README.md`, `docs/AI-COLLABORATION.md`, `docs/AI-HANDOFF.md` | IMPLEMENTED; remote verification complete |
-| `ATLASBANK-REV-001` architecture review | Claude | N/A — review only | None | PREPARED; not yet submitted |
-| Phase 1 technical foundation | Not assigned | Not created | None | NOT STARTED |
-
-No Claude branch exists for the review-only assignment, and Claude has not yet been contacted through this handoff. No simultaneous editing is authorised.
-
-## 7. Completed work
-
-- Repository and latest `main` state inspected.
-- Accepted foundation and current Phase 0 / Phase 1 status confirmed.
-- No open pull requests found during inspection.
-- Missing AI governance documents identified.
-- Stale README status paragraph corrected.
-- Permanent collaboration agreement prepared.
-- First Claude specialist review-only assignment prepared.
-
-## 8. Pending decisions and approvals
-
-The Product Owner has not yet approved the proposed technical stack as a final implementation baseline. In particular, the following remain open:
-- Final layered-monolith boundaries and solution structure.
-- Final .NET runtime/tooling baseline after current support verification.
-- PostgreSQL adoption for the first implementation.
-- Npgsql and Dapper as the data-access approach.
-- Migration tooling.
-- Local development strategy, including whether Docker Compose is warranted.
-- Testing framework and integration-test approach.
-- Transaction identity, idempotency, conflict, and concurrency design.
-- Failure and retry policy.
-- Reconciliation matching and control rules.
-
-The first Claude review is advisory. ChatGPT must evaluate its evidence, separate routine clarifications from material decisions, and present material decisions to the Product Owner before recording them as approved.
+No application implementation is part of this work. Build and test execution are not applicable while the repository remains documentation-only.
 
 ## 9. Next authorised action
 
-1. Governance documentation is committed. Re-fetch `main` immediately before issuing the review prompt and use that exact SHA as the review base.
-2. Provide the Product Owner with the exact review-only Claude assignment prompt, based on the fetched `main` state.
-4. Await the Claude review report.
-5. ChatGPT evaluates the report and presents material decisions for Product Owner approval.
-6. Only after the review and approval gates are satisfied, prepare the Phase 1 implementation plan and explicitly assign an engineering increment.
+After the corrective documentation commit is verified:
+1. Re-fetch latest `main` and inspect all corrected documents.
+2. Confirm the decision register and handoff accurately distinguish accepted decisions, proposals, and open decisions.
+3. Prepare a fresh Claude review-only assignment under FNEOS, with the current main SHA and no file modification authority.
+4. Await the Product Owner's direction before issuing that assignment.
+5. Do not begin Phase 1 implementation until architecture review and required Product Owner decisions are complete.
 
-**Do not begin substantial Phase 1 implementation as part of this initialisation task.**
-
-## 10. Verification and acceptance evidence
-
-At this point:
-- Repository content inspection: performed.
-- GitHub branch/tree/commit inspection: performed.
-- Open pull request inspection: performed; none found.
-- README status correction: committed and remotely verified.
-- Governance files: created, committed to `main`, and remotely re-fetched successfully.
-- Build/tests: not applicable; no application code exists.
-- Foundation acceptance: confirmed by Product Owner.
-- Phase 1 acceptance: not yet applicable.
+**Current phase:** Phase 1 — Repository and Technical Foundation  
+**Progress:** 0% — the technical foundation has not started.  
+**Next phase action:** Complete FNEOS architecture-review and approval gates; no implementation yet.
