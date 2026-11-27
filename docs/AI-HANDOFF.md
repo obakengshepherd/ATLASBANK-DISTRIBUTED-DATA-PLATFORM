@@ -15,14 +15,14 @@ This is the living coordination record. It reports verified repository state, ac
 | Phase 1 — Repository and technical foundation | APPROVED — IMPLEMENTATION NOT STARTED | Product Owner approved the technical baseline on 27 November 2026; no code or infrastructure is yet present. |
 | Initial architecture | ACCEPTED INITIAL DIRECTION | Layered monolith. |
 | Phase 1 technical selections | ACCEPTED | Recorded as AB-D-009 through AB-D-017 in docs/DECISIONS.md. |
-| Latest verified main | VERIFIED | `3cc0ed5a1b7d71a1ca8dcc343e723f7c788fc9c7` at documentation-preparation checkpoint; re-fetch before Claude starts. |
+| Latest verified main | VERIFIED | `afd5fcf0437a8b2acfcc10e7b3e7edb7b3985d1d` immediately before this handoff refresh; re-fetch before Claude starts. |
 | Application code / database migrations / test projects | NOT STARTED | The inspected repository contains planning/documentation only; no application implementation is present. |
 | Claude implementation assignment | PREPARED — NOT YET ISSUED | No Claude implementation has been received. |
 | Local assembly / execution | NOT STARTED | No local build, test, or database evidence supplied. |
 
 ## 2. Latest main and history
 
-Main SHA at the initial inspection was `7ef21d296f4d3432dc67c8d318607b5f48dd1351`. Documentation-preparation commits subsequently advanced `main` to `3cc0ed5a1b7d71a1ca8dcc343e723f7c788fc9c7`. Re-fetch `main` immediately before Claude starts; that fetched SHA becomes the assignment base.
+Main SHA at the initial inspection was `7ef21d296f4d3432dc67c8d318607b5f48dd1351`. Documentation-preparation commits subsequently advanced `main` to `afd5fcf0437a8b2acfcc10e7b3e7edb7b3985d1d` before the current handoff update. Re-fetch `main` immediately before Claude starts; that fetched SHA becomes the assignment base.
 
 Recent documentation commits:
 - `09083bbf57762e732fb2c8a1efa5ea0783469e24` — `docs(atlasbank): approve Phase 1 technical foundation`.
