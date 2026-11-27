@@ -15,7 +15,7 @@ This is the living coordination record. It reports verified repository state, ac
 | Phase 1 — Repository and technical foundation | APPROVED — IMPLEMENTATION NOT STARTED | Product Owner approved the technical baseline on 27 November 2026; no code or infrastructure is yet present. |
 | Initial architecture | ACCEPTED INITIAL DIRECTION | Layered monolith. |
 | Phase 1 technical selections | ACCEPTED | Recorded as AB-D-009 through AB-D-017 in docs/DECISIONS.md. |
-| Latest verified main | VERIFIED | `09083bbf57762e732fb2c8a1efa5ea0783469e24`. |
+| Latest verified main | VERIFIED | `c289327d011634753fcfdca4120d93d4b15ae6cf`. |
 | Application code / database migrations / test projects | NOT STARTED | Repository tree still contains documentation only. |
 | Claude implementation assignment | PREPARED — NOT YET ISSUED | No Claude implementation has been received. |
 | Local assembly / execution | NOT STARTED | No local build, test, or database evidence supplied. |

@@ -172,15 +172,17 @@ The Product Owner's 27 November 2026 directive authorises Phase 1 under the appr
 
 ## 13. Open architecture decisions
 
-- Source identity and idempotency storage design.
-- API contract and batch submission semantics.
+The following decisions are intentionally deferred until the phase that requires them:
+
+- Source identity and content-equivalence contract; idempotency key and uniqueness scope.
+- Batch submission contract and partial-acceptance policy.
 - Synchronous versus asynchronous processing boundary.
-- Source identity and idempotency storage design.
-- Concurrency and transaction strategy.
-- API contract and batch submission semantics.
-- Authentication and authorisation for operational endpoints.
-- Logging, metrics, and health-check scope.
-- Retention and data deletion strategy.
+- Concurrency and atomic persistence strategy.
+- Authentication and authorisation beyond the local health/readiness surface.
+- Operational logging and metrics beyond the foundation diagnostics.
+- Retention and deletion policy.
+
+Migration tooling, project boundaries, local PostgreSQL, test framework, and the Phase 1 configuration/diagnostic baseline are approved in docs/DECISIONS.md.
 
 
 ## 14. Approved technical foundation baseline — 27 November 2026
